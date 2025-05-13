@@ -1,42 +1,64 @@
 package ui;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 import util.UDPconnection;
-import java.util.Scanner;
 
-public class PeerA {
-    public static void main(String[] args) {
-        UDPconnection udpConnection = UDPconnection.getInstance();
+public class PeerA extends Application {
+    private TextArea messageArea;
+    private TextField ipField;
+    private TextField portField;
+    private TextField messageField;
+    private UDPconnection udpConnection;
+
+    @Override
+    public void start(Stage primaryStage) {
+        udpConnection = UDPconnection.getInstance();
         udpConnection.setPort(5000);
+        udpConnection.setOnMessageReceived(this::displayMessage);
         udpConnection.start();
 
-        Scanner scanner = new Scanner(System.in);
+        messageArea = new TextArea();
+        messageArea.setEditable(false);
 
-        while (true) {
-            System.out.println("Soy el Peer A. ¿A quién quieres enviarle un mensaje?");
-            System.out.println("1. B");
-            System.out.println("2. C");
-            System.out.print("Opción: ");
-            int option = Integer.parseInt(scanner.nextLine());
+        ipField = new TextField("127.0.0.1");
+        portField = new TextField("5001");
+        messageField = new TextField();
 
-            String destIp = "127.0.0.1";
-            int destPort = 0;
-            switch (option) {
-                case 1 -> {
-                    destPort = 5001;
-                    destIp = "127.0.0.1";
-                }
-                case 2 -> {
-                    destPort = 5002;
-                    destIp = "192.168.69.179";
-                }
-                default -> {
-                    System.out.println("Opción no válida.");
-                    continue;
-                }
-            };
-            System.out.print("Escribe tu mensaje: ");
-            String message = "[A]: " + scanner.nextLine();
-            udpConnection.sendMessage(message, destIp, destPort);
-        }
+        Button sendButton = new Button("Enviar");
+        sendButton.setOnAction(e -> {
+            String ip = ipField.getText();
+            int port = Integer.parseInt(portField.getText());
+            String message = "[A]: " + messageField.getText();
+            udpConnection.sendAsyncMessage(message, ip, port);
+            messageArea.appendText(message + "\n");
+            messageField.clear();
+        });
+
+        VBox layout = new VBox(10,
+            new Label("Chat:"), messageArea,
+            new HBox(5, new Label("IP:"), ipField, new Label("Puerto:"), portField),
+            new HBox(5, new Label("Mensaje:"), messageField, sendButton)
+        );
+        layout.setStyle("-fx-padding: 10;");
+
+        Scene scene = new Scene(layout, 500, 400);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Peer A");
+        primaryStage.show();
+    }
+
+    private void displayMessage(String message) {
+        // Asegura que se actualiza en el hilo de JavaFX
+        javafx.application.Platform.runLater(() -> {
+            messageArea.appendText(message + "\n");
+        });
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
