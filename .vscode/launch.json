@@ -6,21 +6,21 @@
       "name": "Launch JavaFX App",
       "request": "launch",
       "mainClass": "ui.PeerB",
-      "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+      "vmArgs": "--module-path \"jx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
     },
     {
       "type": "java",
       "name": "Launch JavaFX App",
       "request": "launch",
       "mainClass": "ui.PeerA",
-      "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+      "vmArgs": "--module-path \"jx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
     },
     {
       "type": "java",
       "name": "Launch JavaFX App",
       "request": "launch",
       "mainClass": "ui.PeerC",
-      "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+      "vmArgs": "--module-path \"jx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
     }
   ]
 }
