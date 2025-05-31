@@ -1,5 +1,18 @@
 {
   "java.project.referencedLibraries": [
-    "jx/javafx-sdk-24.0.1/lib/*.jar"
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.graphics.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\jdk.jsobject.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.fxml.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx-swt.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\jfx.incubator.richtext.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.swing.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\jfx.incubator.input.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.base.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.web.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.controls.jar",
+    "c:\\Users\\USUARIO\\Desktop\\compunet\\udp_tarea\\UDP-network-messaging\\jx\\javafx-sdk-24.0.1\\lib\\javafx.media.jar"
+  ],
+  "java.project.sourcePaths": [
+    "src"
   ]
 }
